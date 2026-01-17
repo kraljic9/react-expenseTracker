@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { ExpenseContext } from "./ExpenseContext";
 
 function ContextProvider({ children }) {
+  // Expenses array of objects
   const [expenses, setExpenses] = useState([
     {
       id: 1,
@@ -25,7 +26,7 @@ function ContextProvider({ children }) {
       date: "01/03/2026",
     },
     {
-      id: 3,
+      id: 4,
       text: "Bills",
       amount: 40,
       category: "Water bill",
@@ -33,6 +34,7 @@ function ContextProvider({ children }) {
     },
   ]);
 
+  // New Expense object
   const [newExpense, setNewExpense] = useState({
     text: "",
     amount: "",
