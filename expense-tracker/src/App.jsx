@@ -9,9 +9,9 @@ import ExpenseTracker from "./ExpenseTracker";
   2. Add Expense Context OK!
   3. Add input for text, amount, category and date OK!
   6. Add expense, delete expense, edit expense functions OK!
-  4. Add sum amount for each catogry
-  5. Display different list depending on month
-  6. Persistance through local storage
+  4. Add sum amount for each catogry OK!
+  5. Display different list depending on month OK!
+  6. Persistance through local storage OK!
 */
 
 function App() {
