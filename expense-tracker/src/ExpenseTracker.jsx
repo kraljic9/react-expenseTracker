@@ -51,7 +51,12 @@ function ExpenseTracker() {
           <span>Bills: 0$ </span>
           <span>Eating out: 0$ </span>
         </div>
+        <br />
 
+        <p>Monthly expenses</p>
+        <select name="" id="">
+          <option value="">All</option>
+        </select>
         <ul className="expenses-list">
           {expenses.map((expens) => (
             <li className="expense-li" key={expens.id}>
