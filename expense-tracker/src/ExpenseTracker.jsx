@@ -45,6 +45,13 @@ function ExpenseTracker() {
       </div>
 
       <div className="expenses-wrapper">
+        <div className="expenses-category-sum">
+          <span>Clothes: 0$ </span>
+          <span>Groceries: 0$ </span>
+          <span>Bills: 0$ </span>
+          <span>Eating out: 0$ </span>
+        </div>
+
         <ul className="expenses-list">
           {expenses.map((expens) => (
             <li className="expense-li" key={expens.id}>
