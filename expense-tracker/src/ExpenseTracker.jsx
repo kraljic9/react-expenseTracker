@@ -9,6 +9,10 @@ function ExpenseTracker() {
     setExpenses((prev) => [...prev, { ...expense, id: Date.now() }]);
   }
 
+  function removeExpense(id) {
+    setExpenses((prev) => prev.filter((expense) => expense.id !== id));
+  }
+
   return (
     <>
       <h1>Expense Tracker App</h1>
@@ -98,6 +102,8 @@ function ExpenseTracker() {
               <span className="expense-amount">{expens.amount}$ </span>
               <span className="expense-category">{expens.category} </span>
               <span className="expense-date">{expens.date} </span>
+              <button>Edit</button>
+              <button onClick={() => removeExpense(expens.id)}>Remove</button>
             </li>
           ))}
         </ul>
