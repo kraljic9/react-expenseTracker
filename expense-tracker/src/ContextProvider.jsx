@@ -3,36 +3,7 @@ import { ExpenseContext } from "./ExpenseContext";
 
 function ContextProvider({ children }) {
   // Expenses array of objects
-  const [expenses, setExpenses] = useState([
-    {
-      id: 1,
-      text: "T-shirt",
-      amount: 20,
-      category: "clothes",
-      date: "01/03/2026",
-    },
-    {
-      id: 2,
-      text: "Chicken",
-      amount: 5,
-      category: "groceries",
-      date: "01/03/2026",
-    },
-    {
-      id: 3,
-      text: "Pizza",
-      amount: 15,
-      category: "eating out",
-      date: "01/03/2026",
-    },
-    {
-      id: 4,
-      text: "Bills",
-      amount: 40,
-      category: "Water bill",
-      date: "01/03/2026",
-    },
-  ]);
+  const [expenses, setExpenses] = useState([]);
 
   // New Expense object
   const [newExpense, setNewExpense] = useState({
