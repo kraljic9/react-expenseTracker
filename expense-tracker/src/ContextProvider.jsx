@@ -9,12 +9,14 @@ function ContextProvider({ children }) {
     category: "",
     date: "",
   });
+
   // Expenses array of objects
   const [expenses, setExpenses] = useState(() => {
     const saved = localStorage.getItem("expenses");
     return saved ? JSON.parse(saved) : [];
   });
 
+  // Effect to save expenses list
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
