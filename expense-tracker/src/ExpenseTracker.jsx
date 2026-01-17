@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ExpenseContext } from "./ExpenseContext";
 
 function ExpenseTracker() {
   const { expenses, setExpenses, newExpense, setNewExpense } =
     useContext(ExpenseContext);
+
+  const [editId, setEditId] = useState("");
+
+  const [editExpense, setEditExpense] = useState({});
 
   function addExpense(expense) {
     setExpenses((prev) => [...prev, { ...expense, id: Date.now() }]);
@@ -11,6 +15,20 @@ function ExpenseTracker() {
 
   function removeExpense(id) {
     setExpenses((prev) => prev.filter((expense) => expense.id !== id));
+  }
+
+  function saveEdit(expense, id) {
+    setEditExpense(expense);
+    setEditId(id);
+  }
+
+  function saveChange(id) {
+    setExpenses((prev) =>
+      prev.map((expense) => (id === expense.id ? editExpense : expense)),
+    );
+
+    setEditExpense("");
+    setEditId("");
   }
 
   return (
@@ -98,12 +116,74 @@ function ExpenseTracker() {
         <ul className="expenses-list">
           {expenses.map((expens) => (
             <li className="expense-li" key={expens.id}>
-              <span className="expense-txt">{expens.text} </span>
-              <span className="expense-amount">{expens.amount}$ </span>
-              <span className="expense-category">{expens.category} </span>
-              <span className="expense-date">{expens.date} </span>
-              <button>Edit</button>
-              <button onClick={() => removeExpense(expens.id)}>Remove</button>
+              {editId === expens.id && editExpense ? (
+                <>
+                  <input
+                    type="text"
+                    value={editExpense.text}
+                    onChange={(e) => {
+                      setEditExpense((prev) => ({
+                        ...prev,
+                        text: e.target.value,
+                      }));
+                    }}
+                  />
+                  <input
+                    type="number"
+                    value={editExpense.amount}
+                    onChange={(e) => {
+                      setEditExpense((prev) => ({
+                        ...prev,
+                        amount: e.target.value,
+                      }));
+                    }}
+                  />
+                  <select
+                    name=""
+                    id=""
+                    value={editExpense.category}
+                    onChange={(e) => {
+                      setEditExpense((prev) => ({
+                        ...prev,
+                        category: e.target.value,
+                      }));
+                    }}
+                  >
+                    <option value="">---Chose a category---</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="bills">Bills</option>
+                    <option value="eating out">Eating out</option>
+                  </select>
+                  <input
+                    type="date"
+                    value={editExpense.date}
+                    onChange={(e) => {
+                      setEditExpense((prev) => ({
+                        ...prev,
+                        date: e.target.value,
+                      }));
+                    }}
+                  />
+
+                  <button onClick={() => saveChange(editExpense.id)}>
+                    Save Changes
+                  </button>
+                </>
+              ) : (
+                <>
+                  <span className="expense-txt">{expens.text} </span>
+                  <span className="expense-amount">{expens.amount}$ </span>
+                  <span className="expense-category">{expens.category} </span>
+                  <span className="expense-date">{expens.date} </span>
+                  <button onClick={() => saveEdit(expens, expens.id)}>
+                    Edit
+                  </button>
+                  <button onClick={() => removeExpense(expens.id)}>
+                    Remove
+                  </button>
+                </>
+              )}
             </li>
           ))}
         </ul>
