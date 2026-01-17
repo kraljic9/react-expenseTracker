@@ -1,4 +1,6 @@
-function ContextProvider() {
+import { ExpenseContext } from "./ExpenseContext";
+
+function ContextProvider({ children }) {
   const [expenses, setExpenses] = [
     {
       id: 1,
@@ -36,6 +38,14 @@ function ContextProvider() {
     category: "",
     date: "",
   };
+
+  return (
+    <ExpenseContext.Provider
+      value={{ expenses, setExpenses, newExpense, setNewExpense }}
+    >
+      {children}
+    </ExpenseContext.Provider>
+  );
 }
 
 export default ContextProvider;
