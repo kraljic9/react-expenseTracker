@@ -2,15 +2,18 @@ import { useContext, useState } from "react";
 import { ExpenseContext } from "./ExpenseContext";
 
 function ExpenseTracker() {
+  // Imported values from context
   const { expenses, setExpenses, newExpense, setNewExpense } =
     useContext(ExpenseContext);
 
+  // States
   const [editId, setEditId] = useState("");
 
   const [editExpense, setEditExpense] = useState({});
 
   const [dateFilter, setDateFilter] = useState("");
 
+  // Add Expense function
   function addExpense(expense) {
     if (
       expense.text.length > 0 &&
@@ -22,15 +25,18 @@ function ExpenseTracker() {
     }
   }
 
+  // Remove expense function
   function removeExpense(id) {
     setExpenses((prev) => prev.filter((expense) => expense.id !== id));
   }
 
+  // Save Edit function
   function saveEdit(expense, id) {
     setEditExpense(expense);
     setEditId(id);
   }
 
+  // Save Change function
   function saveChange(id) {
     setExpenses((prev) =>
       prev.map((expense) => (id === expense.id ? editExpense : expense)),
@@ -40,6 +46,7 @@ function ExpenseTracker() {
     setEditId("");
   }
 
+  // Filtered List function
   let filteredList = expenses.filter((expense) => {
     if (dateFilter === "january")
       return new Date(expense.date).getMonth() === 0;
