@@ -109,13 +109,38 @@ function ExpenseTracker() {
             Clothes:{" "}
             {expenses
               .filter((item) => item.category === "clothes")
-              .reduce((acc, sum) => {
-                return acc + sum.amount;
-              }, 0)}{" "}
+              .reduce((acc, cur) => {
+                return acc + cur.amount;
+              }, 0)}
+            {"$ "}
           </span>
-          <span>Groceries: 0$ </span>
-          <span>Bills: 0$ </span>
-          <span>Eating out: 0$ </span>
+          <span>
+            Groceries:
+            {expenses
+              .filter((item) => item.category === "groceries")
+              .reduce((acc, cur) => {
+                return acc + cur.amount;
+              }, 0)}
+            {"$ "}
+          </span>
+          <span>
+            Bills:{" "}
+            {expenses
+              .filter((item) => item.category === "bills")
+              .reduce((acc, cur) => {
+                return acc + cur.amount;
+              }, 0)}
+            {"$ "}
+          </span>
+          <span>
+            Eating out:{" "}
+            {expenses
+              .filter((item) => item.category === "eating out")
+              .reduce((acc, cur) => {
+                return acc + cur.amount;
+              }, 0)}
+            {"$ "}
+          </span>
         </div>
         <br />
 
@@ -144,7 +169,7 @@ function ExpenseTracker() {
                     onChange={(e) => {
                       setEditExpense((prev) => ({
                         ...prev,
-                        amount: e.target.value,
+                        amount: Number(e.target.value),
                       }));
                     }}
                   />
