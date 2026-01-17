@@ -5,6 +5,10 @@ function ExpenseTracker() {
   const { expenses, setExpenses, newExpense, setNewExpense } =
     useContext(ExpenseContext);
 
+  function addExpense(expense) {
+    setExpenses((prev) => [...prev, { ...expense, id: Date.now() }]);
+  }
+
   return (
     <>
       <h1>Expense Tracker App</h1>
@@ -14,21 +18,43 @@ function ExpenseTracker() {
           Expense Text
         </label>
         <br />
-        <input type="text" className="expense-input" />
+        <input
+          type="text"
+          className="expense-input"
+          value={newExpense.text}
+          onChange={(e) =>
+            setNewExpense((prev) => ({ ...prev, text: e.target.value }))
+          }
+        />
         <br />
 
         <label htmlFor="" className="expense-label">
           Expense Amount
         </label>
         <br />
-        <input type="number" className="expense-input" />
+        <input
+          type="number"
+          className="expense-input"
+          value={newExpense.amount}
+          onChange={(e) =>
+            setNewExpense((prev) => ({ ...prev, amount: e.target.value }))
+          }
+        />
         <br />
 
         <label htmlFor="" className="expense-label">
           Expense Category
         </label>
         <br />
-        <select name="" id="" className="expense-select">
+        <select
+          name=""
+          id=""
+          className="expense-select"
+          value={newExpense.category}
+          onChange={(e) =>
+            setNewExpense((prev) => ({ ...prev, category: e.target.value }))
+          }
+        >
           <option value="">---Chose a category---</option>
           <option value="clothes">Clothes</option>
           <option value="groceries">Groceries</option>
@@ -41,7 +67,15 @@ function ExpenseTracker() {
           Expense Date
         </label>
         <br />
-        <input type="date" className="expense-select-date" />
+        <input
+          type="date"
+          className="expense-select-date"
+          onChange={(e) =>
+            setNewExpense((prev) => ({ ...prev, date: e.target.value }))
+          }
+        />
+
+        <button onClick={() => addExpense(newExpense)}>Add Expense</button>
       </div>
 
       <div className="expenses-wrapper">
