@@ -9,6 +9,8 @@ function ExpenseTracker() {
 
   const [editExpense, setEditExpense] = useState({});
 
+  const [dateFilter, setDateFilter] = useState("");
+
   function addExpense(expense) {
     setExpenses((prev) => [...prev, { ...expense, id: Date.now() }]);
   }
@@ -145,8 +147,20 @@ function ExpenseTracker() {
         <br />
 
         <p>Monthly expenses</p>
-        <select name="" id="">
+        <select name="" id="" onChange={(e) => setDateFilter(e.target.value)}>
           <option value="">All</option>
+          <option value="january">January</option>
+          <option value="february">February</option>
+          <option value="march">March</option>
+          <option value="april">April</option>
+          <option value="may">May</option>
+          <option value="june">June</option>
+          <option value="july">July</option>
+          <option value="august">Auguts</option>
+          <option value="september">September</option>
+          <option value="october">October</option>
+          <option value="november">November</option>
+          <option value="december">December</option>
         </select>
         <ul className="expenses-list">
           {expenses.map((expens) => (
