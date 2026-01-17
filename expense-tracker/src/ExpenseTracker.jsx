@@ -59,7 +59,10 @@ function ExpenseTracker() {
           className="expense-input"
           value={newExpense.amount}
           onChange={(e) =>
-            setNewExpense((prev) => ({ ...prev, amount: e.target.value }))
+            setNewExpense((prev) => ({
+              ...prev,
+              amount: Number(e.target.value),
+            }))
           }
         />
         <br />
@@ -102,7 +105,14 @@ function ExpenseTracker() {
 
       <div className="expenses-wrapper">
         <div className="expenses-category-sum">
-          <span>Clothes: 0$ </span>
+          <span>
+            Clothes:{" "}
+            {expenses
+              .filter((item) => item.category === "clothes")
+              .reduce((acc, sum) => {
+                return acc + sum.amount;
+              }, 0)}{" "}
+          </span>
           <span>Groceries: 0$ </span>
           <span>Bills: 0$ </span>
           <span>Eating out: 0$ </span>
