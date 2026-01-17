@@ -12,7 +12,14 @@ function ExpenseTracker() {
   const [dateFilter, setDateFilter] = useState("");
 
   function addExpense(expense) {
-    setExpenses((prev) => [...prev, { ...expense, id: Date.now() }]);
+    if (
+      expense.text.length > 0 &&
+      expense.amount > 0 &&
+      expense.date.length > 0 &&
+      expense.category.length > 0
+    ) {
+      setExpenses((prev) => [...prev, { ...expense, id: Date.now() }]);
+    }
   }
 
   function removeExpense(id) {
