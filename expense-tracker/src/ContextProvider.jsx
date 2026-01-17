@@ -1,7 +1,8 @@
+import { useContext, useState } from "react";
 import { ExpenseContext } from "./ExpenseContext";
 
 function ContextProvider({ children }) {
-  const [expenses, setExpenses] = [
+  const [expenses, setExpenses] = useState([
     {
       id: 1,
       text: "T-shirt",
@@ -30,14 +31,14 @@ function ContextProvider({ children }) {
       category: "Water bill",
       date: "01/03/2026",
     },
-  ];
+  ]);
 
-  const [newExpense, setNewExpense] = {
+  const [newExpense, setNewExpense] = useState({
     text: "",
     amount: "",
     category: "",
     date: "",
-  };
+  });
 
   return (
     <ExpenseContext.Provider
