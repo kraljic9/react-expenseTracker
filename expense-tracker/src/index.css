@@ -121,6 +121,14 @@ body {
   width: 150px;
 }
 
+.expense-amount {
+  width: 100px;
+}
+
+.expense-category {
+  width: 150px;
+}
+
 .expense-btn-container {
   font-size: 1.3rem;
 }
