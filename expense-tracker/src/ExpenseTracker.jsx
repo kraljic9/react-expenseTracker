@@ -72,13 +72,9 @@ function ExpenseTracker() {
 
   return (
     <>
-      <h1>Expense Tracker App</h1>
+      <h1 className="main-title">Expense Tracker App</h1>
 
-      <div className="input-wrapper">
-        <label htmlFor="" className="expense-label">
-          Expense Text
-        </label>
-        <br />
+      <div className="inputs-wrapper">
         <input
           type="text"
           className="expense-input"
@@ -86,13 +82,9 @@ function ExpenseTracker() {
           onChange={(e) =>
             setNewExpense((prev) => ({ ...prev, text: e.target.value }))
           }
+          placeholder="Expense Text"
         />
-        <br />
 
-        <label htmlFor="" className="expense-label">
-          Expense Amount
-        </label>
-        <br />
         <input
           type="number"
           className="expense-input"
@@ -103,13 +95,9 @@ function ExpenseTracker() {
               amount: Number(e.target.value),
             }))
           }
+          placeholder="Amount"
         />
-        <br />
 
-        <label htmlFor="" className="expense-label">
-          Expense Category
-        </label>
-        <br />
         <select
           name=""
           id=""
@@ -125,26 +113,26 @@ function ExpenseTracker() {
           <option value="bills">Bills</option>
           <option value="eating out">Eating out</option>
         </select>
-        <br />
 
-        <label htmlFor="" className="expense-label">
-          Expense Date
-        </label>
-        <br />
         <input
           type="date"
-          className="expense-select-date"
+          className="expense-select"
           onChange={(e) =>
             setNewExpense((prev) => ({ ...prev, date: e.target.value }))
           }
         />
 
-        <button onClick={() => addExpense(newExpense)}>Add Expense</button>
+        <button
+          className="add-expense-btn"
+          onClick={() => addExpense(newExpense)}
+        >
+          Add Expense
+        </button>
       </div>
 
       <div className="expenses-wrapper">
         <div className="expenses-category-sum">
-          <span>
+          <span className="clothes-category">
             Clothes:{" "}
             {expenses
               .filter((item) => item.category === "clothes")
