@@ -106,7 +106,6 @@ body {
 
 .expenses-list {
   list-style: none;
-  border: 1px solid;
   padding: 20px;
 }
 
@@ -135,12 +134,52 @@ body {
   color: white;
   border: none;
   border-radius: 4px;
+  transition: background-color 0.4s ease;
 }
 
 .edit-btn {
-  background-color: rgb(128, 204, 229);
+  background-color: hsl(195 66% 70%);
+}
+
+.edit-btn:hover {
+  background-color: hsl(195 66% 65%);
 }
 
 .remove-btn {
-  background-color: rgb(229, 92, 92);
+  background-color: hsl(0 74% 63%);
+}
+
+.remove-btn:hover {
+  background-color: hsl(0 74% 58%);
+}
+
+.edit-input {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: hsl(0, 0%, 60%);
+  border-radius: 4px;
+  border: 3px solid;
+}
+
+.edit-select {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: hsl(0, 0%, 60%);
+  border-radius: 4px;
+  border: 3px solid;
+}
+
+.save-change-btn {
+  font-size: 1.3rem;
+  padding: 8px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  background-color: hsl(205, 90%, 60%);
+  transition: background-color 0.4s ease;
+}
+
+.save-change-btn:hover {
+  background-color: hsl(205, 90%, 55%);
 }
