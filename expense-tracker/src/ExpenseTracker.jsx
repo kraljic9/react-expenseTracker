@@ -132,7 +132,7 @@ function ExpenseTracker() {
 
       <div className="expenses-wrapper">
         <div className="expenses-category-sum">
-          <span className="clothes-category">
+          <span className="clothes category">
             Clothes:{" "}
             {expenses
               .filter((item) => item.category === "clothes")
@@ -141,7 +141,7 @@ function ExpenseTracker() {
               }, 0)}
             {"$ "}
           </span>
-          <span>
+          <span className="groceries category">
             Groceries:
             {expenses
               .filter((item) => item.category === "groceries")
@@ -150,7 +150,7 @@ function ExpenseTracker() {
               }, 0)}
             {"$ "}
           </span>
-          <span>
+          <span className="bills category">
             Bills:{" "}
             {expenses
               .filter((item) => item.category === "bills")
@@ -159,7 +159,7 @@ function ExpenseTracker() {
               }, 0)}
             {"$ "}
           </span>
-          <span>
+          <span className="eating-out category">
             Eating out:{" "}
             {expenses
               .filter((item) => item.category === "eating out")
