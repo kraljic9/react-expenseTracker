@@ -55,14 +55,11 @@ body {
   background-color: hsl(155, 100%, 35%);
 }
 
-.expenses-wrapper {
-  border: 1px solid;
-}
-
 .expenses-category-sum {
   padding: 20px;
   display: flex;
   gap: 50px;
+  margin-top: 20px;
 }
 
 .category {
@@ -88,4 +85,21 @@ body {
 
 .eating-out {
   background-color: lightsalmon;
+}
+
+.monthly-expenses-container {
+  padding: 20px;
+}
+
+.monthly-expenses-title {
+  font-size: 1.3rem;
+}
+
+.monthly-expenses-select {
+  font-size: 0.9rem;
+  padding: 4px;
+  font-weight: bold;
+  color: hsl(0, 0%, 60%);
+  border: 3px solid;
+  border-radius: 4px;
 }
