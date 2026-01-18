@@ -103,3 +103,44 @@ body {
   border: 3px solid;
   border-radius: 4px;
 }
+
+.expenses-list {
+  list-style: none;
+  border: 1px solid;
+  padding: 20px;
+}
+
+.expense-li {
+  display: flex;
+  gap: 40px;
+  font-size: 1.3rem;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.expense-txt {
+  width: 150px;
+}
+
+.expense-btn-container {
+  font-size: 1.3rem;
+}
+
+.expense-btn {
+  font-size: 1.1rem;
+  margin-right: 16px;
+  width: 100px;
+  padding: 4px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.edit-btn {
+  background-color: rgb(128, 204, 229);
+}
+
+.remove-btn {
+  background-color: rgb(229, 92, 92);
+}
