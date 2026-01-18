@@ -169,24 +169,30 @@ function ExpenseTracker() {
             {"$ "}
           </span>
         </div>
-        <br />
 
-        <p>Monthly expenses</p>
-        <select name="" id="" onChange={(e) => setDateFilter(e.target.value)}>
-          <option value="">All</option>
-          <option value="january">January</option>
-          <option value="february">February</option>
-          <option value="march">March</option>
-          <option value="april">April</option>
-          <option value="may">May</option>
-          <option value="june">June</option>
-          <option value="july">July</option>
-          <option value="august">Auguts</option>
-          <option value="september">September</option>
-          <option value="october">October</option>
-          <option value="november">November</option>
-          <option value="december">December</option>
-        </select>
+        <div className="monthly-expenses-container">
+          <p className="monthly-expenses-title">Monthly expenses</p>
+          <select
+            className="monthly-expenses-select"
+            name=""
+            id=""
+            onChange={(e) => setDateFilter(e.target.value)}
+          >
+            <option value="">All</option>
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="june">June</option>
+            <option value="july">July</option>
+            <option value="august">Auguts</option>
+            <option value="september">September</option>
+            <option value="october">October</option>
+            <option value="november">November</option>
+            <option value="december">December</option>
+          </select>
+        </div>
         <ul className="expenses-list">
           {filteredList.map((expens) => (
             <li className="expense-li" key={expens.id}>
@@ -201,6 +207,7 @@ function ExpenseTracker() {
                         text: e.target.value,
                       }));
                     }}
+                    className="edit-input"
                   />
                   <input
                     type="number"
@@ -211,6 +218,7 @@ function ExpenseTracker() {
                         amount: Number(e.target.value),
                       }));
                     }}
+                    className="edit-input"
                   />
                   <select
                     name=""
@@ -222,6 +230,7 @@ function ExpenseTracker() {
                         category: e.target.value,
                       }));
                     }}
+                    className="edit-select"
                   >
                     <option value="">---Chose a category---</option>
                     <option value="clothes">Clothes</option>
@@ -238,9 +247,13 @@ function ExpenseTracker() {
                         date: e.target.value,
                       }));
                     }}
+                    className="edit-select"
                   />
 
-                  <button onClick={() => saveChange(editExpense.id)}>
+                  <button
+                    className="save-change-btn"
+                    onClick={() => saveChange(editExpense.id)}
+                  >
                     Save Changes
                   </button>
                 </>
@@ -250,12 +263,20 @@ function ExpenseTracker() {
                   <span className="expense-amount">{expens.amount}$ </span>
                   <span className="expense-category">{expens.category} </span>
                   <span className="expense-date">{expens.date} </span>
-                  <button onClick={() => saveEdit(expens, expens.id)}>
-                    Edit
-                  </button>
-                  <button onClick={() => removeExpense(expens.id)}>
-                    Remove
-                  </button>
+                  <div className="expense-btn-container">
+                    <button
+                      className="expense-btn edit-btn"
+                      onClick={() => saveEdit(expens, expens.id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="expense-btn remove-btn"
+                      onClick={() => removeExpense(expens.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </>
               )}
             </li>
