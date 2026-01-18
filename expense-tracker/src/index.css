@@ -12,7 +12,7 @@ body {
 .inputs-wrapper {
   display: flex;
   justify-content: space-between;
-  border: 1px solid;
+
   padding: 20px;
   font-size: 1.3rem;
 }
@@ -60,8 +60,32 @@ body {
 }
 
 .expenses-category-sum {
-  border: 3px solid blue;
   padding: 20px;
   display: flex;
   gap: 50px;
+}
+
+.category {
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 8px;
+  color: black;
+  width: 150px;
+  text-align: center;
+}
+
+.clothes {
+  background-color: lightcoral;
+}
+
+.groceries {
+  background-color: lightgreen;
+}
+
+.bills {
+  background-color: rgb(175, 95, 250);
+}
+
+.eating-out {
+  background-color: lightsalmon;
 }
