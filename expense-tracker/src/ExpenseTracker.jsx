@@ -48,26 +48,25 @@ function ExpenseTracker() {
 
   // Filtered List function
   let filteredList = expenses.filter((expense) => {
-    if (dateFilter === "january")
-      return new Date(expense.date).getMonth() === 0;
-    if (dateFilter === "february")
-      return new Date(expense.date).getMonth() === 1;
-    if (dateFilter === "march") return new Date(expense.date).getMonth() === 2;
-    if (dateFilter === "april") return new Date(expense.date).getMonth() === 3;
-    if (dateFilter === "may") return new Date(expense.date).getMonth() === 4;
-    if (dateFilter === "june") return new Date(expense.date).getMonth() === 5;
-    if (dateFilter === "july") return new Date(expense.date).getMonth() === 6;
-    if (dateFilter === "august") return new Date(expense.date).getMonth() === 7;
-    if (dateFilter === "september")
-      return new Date(expense.date).getMonth() === 8;
-    if (dateFilter === "october")
-      return new Date(expense.date).getMonth() === 9;
-    if (dateFilter === "november")
-      return new Date(expense.date).getMonth() === 10;
-    if (dateFilter === "december")
-      return new Date(expense.date).getMonth() === 11;
+    if (!dateFilter) return true; // Show all if no filter
 
-    return expense;
+    const months = [
+      "january",
+      "february",
+      "march",
+      "april",
+      "may",
+      "june",
+      "july",
+      "august",
+      "september",
+      "october",
+      "november",
+      "december",
+    ];
+
+    const expenseMonth = new Date(expense.date).getMonth();
+    return months[expenseMonth] === dateFilter;
   });
 
   return (
