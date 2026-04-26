@@ -2,6 +2,26 @@
 
 A modern financial management tool built with **React**. This application allows users to track their spending habits with real-time updates, categorical filtering, and a fully responsive interface.
 
+## 🎬 Video Demo
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/cf9a8636-9cbe-47e7-a78d-c0f0b84cb9b3" width="100%" controls title="Project Demo">
+  </video>
+
+</p>
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/d798608e-7329-4df4-b0eb-7efeea823779" width="100%" controls title="Project Demo">
+  </video>
+
+</p>
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/3c57ef09-9aac-4f0e-baa4-ccf14cc1a266" width="100%" controls title="Project Demo">
+  </video>
+
+</p>
+
 ## 📱 Full Responsive Showcase
 
 <table align="center">
